@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de Estudos completo e interativo para a prova de Redes de Computadores: Resumo Teórico Completo, Calculadora IPv4 e Quiz de 30 Questões com gabarito comentado.">
+  <title>Portal de Estudos | Redes de Computadores</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decorative light glow -->
+  <div class="bg-blobs">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-area" onclick="switchSection('teoria')">
+        <div class="logo-icon">🌐</div>
+        <div class="logo-text">
+          <h1>RedeMaster</h1>
+          <span>Portal de Estudos & Simulado</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <nav class="nav-tabs" role="tablist">
+          <button id="nav-teoria-btn" class="nav-btn active" onclick="switchSection('teoria')" role="tab">
+            📖 <span>Resumo Teórico</span>
+          </button>
+          <button id="nav-quiz-btn" class="nav-btn" onclick="switchSection('quiz')" role="tab">
+            📝 <span>Quiz (30Q)</span>
+            <span class="badge-pill" id="header-quiz-badge">0/30</span>
+          </button>
+          <button id="nav-resultado-btn" class="nav-btn" onclick="switchSection('resultado')" role="tab" style="display:none;">
+            🏆 <span>Resultados</span>
+          </button>
+        </nav>
+
+        <button class="theme-toggle-btn" id="theme-btn" title="Alternar tema claro/escuro" onclick="toggleTheme()">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="hero-badge">
+        ⚡ Preparatório Completo para Prova
+      </div>
+      <h2 class="hero-title">
+        Domine <span class="highlight">Redes de Computadores</span>
+      </h2>
+      <p class="hero-desc">
+        Revise os conceitos essenciais nos blocos teóricos, teste seus conhecimentos com nosso simulado de 30 questões comentadas e analise suas métricas de aprendizado.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- ====================================================================
+         SEÇÃO 1: O QUE PRECISO SABER (RESUMO TEÓRICO)
+         ==================================================================== -->
+    <section id="section-teoria" class="section-teoria">
+      
+      <!-- Top Toolbar -->
+      <div class="teoria-controls">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="teoria-search" placeholder="Pesquisar nos tópicos (ex: CSMA/CD, Hub, CIDR, OSI...)" onkeyup="filterTeoria()">
+        </div>
+        <div class="accordion-actions">
+          <button class="btn-secondary" onclick="expandAllTeoria()">
+            <span>➕ Expandir Todos</span>
+          </button>
+          <button class="btn-secondary" onclick="collapseAllTeoria()">
+            <span>➖ Recolher Todos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Accordion List -->
+      <div class="accordion-list" id="accordion-container">
+
+        <!-- Tópico 1: Comunicação de Dados -->
+        <article class="accordion-item open" id="acc-comunicacao">
+          <div class="accordion-header" onclick="toggleAccordion('acc-comunicacao')">
+            <div class="acc-title-group">
+              <div class="acc-icon">📡</div>
+              <div class="acc-title-text">
+                <h3>1. Comunicação de Dados</h3>
+                <p>Transmissor, Receptor, Meio/Canal e Protocolo</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>A comunicação de dados consiste na transferência e troca de informações na forma de bits (0s e 1s) entre dois ou mais pontos através de um sistema de transmissão. Qualquer sistema desse tipo apoia-se em <strong>quatro componentes fundamentais</strong>:</p>
+              
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <span class="concept-pill">Origem</span>
+                  <h4>📤 Transmissor (Sender)</h4>
+                  <p>Dispositivo gerador da informação. Converte os dados em sinais eletromagnéticos, ópticos ou de rádio adequados ao meio de propagação (ex: PC, celular, câmera IP).</p>
+                </div>
+
+                <div class="concept-card">
+                  <span class="concept-pill">Destino</span>
+                  <h4>📥 Receptor (Receiver)</h4>
+                  <p>Dispositivo de destino final. Recebe os sinais propagados pelo meio e os reconverte na informação digital inteligível original.</p>
+                </div>
+
+                <div class="concept-card">
+                  <span class="concept-pill">Propagação</span>
+                  <h4>🔗 Meio / Canal de Comunicação</h4>
+                  <p>Caminho físico por onde o sinal viaja. Pode ser <strong>guiado</strong> (par trançado, fibra óptica, cabo coaxial) ou <strong>não-guiado</strong> (ar livre via ondas de rádio, micro-ondas, infravermelho). Sofre atenuação, ruído e distorção.</p>
+                </div>
+
+                <div class="concept-card">
+                  <span class="concept-pill">Lógica & Regras</span>
+                  <h4>📜 Protocolo</h4>
+                  <p>Conjunto formal de regras, sintaxes e convenções que governa a comunicação. Define <strong>como</strong> a mensagem é formatada, sincronizada, controlada contra erros e interpretada por ambos os lados.</p>
+                </div>
+              </div>
+
+              <div class="callout-box">
+                <h5>💡 Modos de Direção de Transmissão:</h5>
+                <ul>
+                  <li><strong>Simplex:</strong> Transmissão estritamente unidirecional (ex: rádio FM comercial, teclado para PC).</li>
+                  <li><strong>Half-Duplex:</strong> Ambos transmitem e recebem, mas <strong>não ao mesmo tempo</strong> (ex: walkie-talkie, Ethernet 10BASE-T com Hub).</li>
+                  <li><strong>Full-Duplex:</strong> Transmissão e recepção simultâneas por canais independentes (ex: telefonia, Ethernet moderna com Switch).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tópico 2: Modelos de Referência (OSI vs TCP/IP) -->
+        <article class="accordion-item" id="acc-modelos">
+          <div class="accordion-header" onclick="toggleAccordion('acc-modelos')">
+            <div class="acc-title-group">
+              <div class="acc-icon">🏛️</div>
+              <div class="acc-title-text">
+                <h3>2. Modelos de Referência: OSI (7 Camadas) vs TCP/IP (4 Camadas)</h3>
+                <p>Arquitetura em camadas, encapsulamento, PDUs e mapeamento</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>Modelos em camadas dividem tarefas complexas de rede em subsistemas modulares independentes, onde cada camada oferece serviços à camada superior e consome da inferior.</p>
+
+              <div class="table-responsive">
+                <table class="table-custom">
+                  <thead>
+                    <tr>
+                      <th>Camada OSI (7)</th>
+                      <th>PDU OSI</th>
+                      <th>Função Primária</th>
+                      <th>Camada TCP/IP (4)</th>
+                      <th>Protocolos Exemplos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="badge-layer">7. Aplicação</span></td>
+                      <td>Dados</td>
+                      <td>Interface com o usuário e programas finais</td>
+                      <td rowspan="3"><strong style="color:var(--accent-cyan)">Aplicação</strong><br><small style="color:var(--text-muted)">(Condensa 7, 6 e 5)</small></td>
+                      <td>HTTP, HTTPS, DNS, DHCP, SSH, FTP, SMTP</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">6. Apresentação</span></td>
+                      <td>Dados</td>
+                      <td>Tradução de formatos, compressão e criptografia (SSL/TLS)</td>
+                      <td>ASCII, JPEG, TLS, JSON</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">5. Sessão</span></td>
+                      <td>Dados</td>
+                      <td>Abertura, manutenção, sincronismo e encerramento de diálogos</td>
+                      <td>RPC, NetBIOS, Sockets</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">4. Transporte</span></td>
+                      <td>Segmento / Datagrama</td>
+                      <td>Comunicação ponta-a-ponta (processo a processo), controle de fluxo e portas</td>
+                      <td><strong style="color:var(--accent-indigo)">Transporte</strong></td>
+                      <td>TCP (confiável/orientado a conexão), UDP (rápido/não-confiável)</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">3. Rede</span></td>
+                      <td>Pacote (Packet)</td>
+                      <td>Endereçamento lógico (IP) e roteamento entre redes distintas</td>
+                      <td><strong style="color:var(--accent-blue)">Internet</strong></td>
+                      <td>IPv4, IPv6, ICMP, ARP, OSPF, BGP</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">2. Enlace</span></td>
+                      <td>Quadro (Frame)</td>
+                      <td>Endereçamento físico (MAC), controle de acesso ao meio (MAC/LLC) e detecção de erros</td>
+                      <td rowspan="2"><strong style="color:var(--text-primary)">Acesso à Rede</strong><br><small style="color:var(--text-muted)">(Host-to-Network)</small></td>
+                      <td>Ethernet (802.3), Wi-Fi (802.11), PPP, Switches</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge-layer">1. Física</span></td>
+                      <td>Bits</td>
+                      <td>Transmissão bruta de sinais elétricos, ópticos ou de rádio pelo meio físico</td>
+                      <td>Cabos Cat5e/6, Fibra, Conectores RJ45, Hubs</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout-box">
+                <h5>📌 Mnemônico Clássico do Modelo OSI:</h5>
+                <p>De baixo para cima (1 ao 7): <strong>F</strong>ísica, <strong>E</strong>nlace, <strong>R</strong>ede, <strong>T</strong>ransporte, <strong>S</strong>essão, <strong>A</strong>presentação, <strong>A</strong>plicação → <em>"<strong>F</strong>oi <strong>E</strong>m <strong>R</strong>oma <strong>T</strong>rabalhar <strong>S</strong>ó <strong>A</strong>té <strong>A</strong>manhã"</em>.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tópico 3: Tipos de Redes e Topologias -->
+        <article class="accordion-item" id="acc-topologias">
+          <div class="accordion-header" onclick="toggleAccordion('acc-topologias')">
+            <div class="acc-title-group">
+              <div class="acc-icon">🌐</div>
+              <div class="acc-title-text">
+                <h3>3. Tipos de Redes e Topologias</h3>
+                <p>PAN, LAN, MAN, WAN e Topologias (Estrela, Barramento, Anel, Árvore, Malha)</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <h4>Classificação Geográfica:</h4>
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <span class="concept-pill">Curto Alcance</span>
+                  <h4>PAN (Personal Area Network)</h4>
+                  <p>Centrada em uma pessoa, alcance de até 10 metros. Ex: Fones Bluetooth, smartwatches conectados ao celular.</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">Local</span>
+                  <h4>LAN (Local Area Network)</h4>
+                  <p>Edifício, residência ou campus universitário. Altas taxas de transferência e baixa latência (Ethernet, Wi-Fi).</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">Metropolitana</span>
+                  <h4>MAN (Metropolitan Area Network)</h4>
+                  <p>Cobre uma cidade ou região metropolitana. Ex: Rede de fibra óptica de operadora interligando agências bancárias em uma capital.</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">Global / Longa Distância</span>
+                  <h4>WAN (Wide Area Network)</h4>
+                  <p>Abrangência nacional ou planetária. Interliga cidades, países e continentes. O maior exemplo de WAN pública é a <strong>Internet</strong>.</p>
+                </div>
+              </div>
+
+              <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Topologias Físicas e Lógicas:</h4>
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <h4>⭐ Estrela (Star)</h4>
+                  <p>Todos os nós conectam-se a um concentrador central (Switch ou Hub). Se um cabo de estação rompe, apenas ela cai. Fácil manutenção e padrão quase universal nas LANs modernas.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>🚌 Barramento (Bus)</h4>
+                  <p>Todos os nós compartilham um mesmo cabo tronco linear (coaxial). Exige <strong>terminadores resistivos (50 Ω)</strong> nas pontas para absorver o sinal e evitar reflexão/colisão.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>🔄 Anel (Ring)</h4>
+                  <p>Os nós formam um circuito fechado unidirecional. Um "Token" circula concedendo permissão de transmissão (Token Ring). Falha em um nó pode derrubar a rede toda se não houver anel duplo.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>🌳 Árvore (Tree / Hierárquica)</h4>
+                  <p>Estrutura hierárquica baseada em ramos. O switch central (raiz) conecta-se a switches de distribuição e estes aos de acesso. Excelente escalabilidade corporativa.</p>
+                </div>
+                <div class="concept-card" style="grid-column: 1 / -1;">
+                  <h4>🕸️ Malha (Mesh): Completa vs Parcial</h4>
+                  <p>Na <strong>Malha Completa (Full Mesh)</strong>, cada nó possui um enlace físico direto e dedicado para cada um dos outros nós da rede. Oferece máxima redundância e tolerância a falhas.<br>
+                  Fórmula de enlaces necessários: <strong style="color:var(--accent-cyan); font-family:var(--font-mono)">L = [N × (N - 1)] / 2</strong>. Ex: 8 nós exigem (8 × 7)/2 = <strong>28 enlaces</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tópico 4: Equipamentos de Interconexão -->
+        <article class="accordion-item" id="acc-equipamentos">
+          <div class="accordion-header" onclick="toggleAccordion('acc-equipamentos')">
+            <div class="acc-title-group">
+              <div class="acc-icon">🔀</div>
+              <div class="acc-title-text">
+                <h3>4. Equipamentos de Interconexão de Redes</h3>
+                <p>Repetidor, Hub, Bridge, Switch, Roteador e Gateway</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <div class="table-responsive">
+                <table class="table-custom">
+                  <thead>
+                    <tr>
+                      <th>Equipamento</th>
+                      <th>Camada OSI</th>
+                      <th>Endereço Usado</th>
+                      <th>Domínio de Colisão</th>
+                      <th>Domínio de Broadcast</th>
+                      <th>Como Funciona</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Repetidor / Hub</strong></td>
+                      <td><span class="badge-layer">Camada 1 (Física)</span></td>
+                      <td>Nenhum (sem inteligência)</td>
+                      <td><span style="color:var(--status-hard)">1 único para todas as portas</span></td>
+                      <td>1 único</td>
+                      <td>Repetidor elétrico multiporta. Recebe o bit por uma porta e replica (flooding cego) para todas as demais. Gera colisões frequentes.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Bridge / Switch</strong></td>
+                      <td><span class="badge-layer">Camada 2 (Enlace)</span></td>
+                      <td>Endereço MAC (48 bits)</td>
+                      <td><span style="color:var(--status-easy)">Isola: 1 por porta</span></td>
+                      <td>1 único (por padrão / VLAN)</td>
+                      <td>Comuta quadros via tabela CAM/MAC. Cada porta tem sua banda dedicada (microsegmentação). Elimina colisões físicas em Full-Duplex. Propaga broadcasts.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Roteador</strong></td>
+                      <td><span class="badge-layer">Camada 3 (Rede)</span></td>
+                      <td>Endereço IP (Lógico)</td>
+                      <td><span style="color:var(--status-easy)">Isola: 1 por porta</span></td>
+                      <td><span style="color:var(--status-easy)">Isola: 1 por interface</span></td>
+                      <td>Encaminha pacotes entre redes lógicas distintas com base na tabela de roteamento. <strong>Bloqueia a propagação de broadcasts</strong> por padrão.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Gateway</strong></td>
+                      <td><span class="badge-layer">Camadas 4 a 7</span></td>
+                      <td>Portas / Protocolos App</td>
+                      <td>Isolado</td>
+                      <td>Isolado</td>
+                      <td>Tradutor de protocolos em nível de aplicação (ex: conversão de correio legado para SMTP, gateways de voz VoIP para telefonia analógica).</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout-box">
+                <h5>⚠️ Regra de Ouro para a Prova:</h5>
+                <p><strong>Hub:</strong> 1 Domínio de Colisão e 1 Domínio de Broadcast.<br>
+                <strong>Switch de 24 portas:</strong> 24 Domínios de Colisão e 1 Domínio de Broadcast (sem VLANs).<br>
+                <strong>Roteador de 4 portas:</strong> 4 Domínios de Colisão e 4 Domínios de Broadcast!</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tópico 5: Ethernet -->
+        <article class="accordion-item" id="acc-ethernet">
+          <div class="accordion-header" onclick="toggleAccordion('acc-ethernet')">
+            <div class="acc-title-group">
+              <div class="acc-icon">🔌</div>
+              <div class="acc-title-text">
+                <h3>5. Ethernet: Evolução, CSMA/CD e Comutação</h3>
+                <p>Half-Duplex vs Full-Duplex, Backoff Exponencial, Modos de Comutação e Flow Control (802.3x)</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <h4>Evolução dos Padrões IEEE 802.3:</h4>
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <span class="concept-pill">10 Mbps</span>
+                  <h4>Standard Ethernet</h4>
+                  <p>10BASE-T (IEEE 802.3i). Cabo par trançado Cat3/Cat5. Operava majoritariamente em Half-Duplex com Hubs.</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">100 Mbps</span>
+                  <h4>Fast Ethernet</h4>
+                  <p>100BASE-TX (IEEE 802.3u). Cabo Cat5, transmissão a 100 Mbps com tempo de bit reduzido para 10 ns.</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">1.000 Mbps (1 Gbps)</span>
+                  <h4>Gigabit Ethernet</h4>
+                  <p>1000BASE-T (IEEE 802.3ab). Cabo Cat5e/Cat6, utiliza todos os 4 pares simultaneamente em full-duplex com codificação 4D-PAM5.</p>
+                </div>
+                <div class="concept-card">
+                  <span class="concept-pill">10.000 Mbps (10 Gbps)</span>
+                  <h4>10 Gigabit Ethernet</h4>
+                  <p>10GBASE-T (IEEE 802.3an) em Cat6A/Cat7 e fibra óptica (802.3ae). Elimina totalmente suporte a CSMA/CD e half-duplex.</p>
+                </div>
+              </div>
+
+              <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Como opera o CSMA/CD (Carrier Sense Multiple Access with Collision Detection):</h4>
+              <p>Utilizado em redes <strong>Half-Duplex</strong> (meio compartilhado). Passos do algoritmo:</p>
+              <ol style="margin-left: 1.5rem; margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.6;">
+                <li><strong>Carrier Sense (Sentir Portadora):</strong> O nó escuta o canal. Se houver sinal, aguarda ficar livre.</li>
+                <li><strong>Transmissão:</strong> Quando livre, inicia a transmissão continuando a monitorar o cabo.</li>
+                <li><strong>Detecção de Colisão:</strong> Se duas estações transmitirem simultaneamente, a amplitude de tensão dobra no cabo, indicando colisão.</li>
+                <li><strong>Jamming Signal:</strong> A estação transmissora cessa o quadro e envia um sinal de reforço de colisão (jam de 32 a 48 bits) para garantir que todas as estações detectem a colisão.</li>
+                <li><strong>Recuo Binário Exponencial (Truncated Binary Exponential Backoff):</strong> Cada nó sorteia um tempo aleatório no intervalo [0 a 2<sup>k</sup> - 1] × <em>slot time</em> (onde k = min(nº colisões, 10)) antes de tentar novamente. Se atingir 16 colisões consecutivas, a transmissão é abortada com erro.</li>
+              </ol>
+
+              <div class="callout-box">
+                <h5>🚀 Por que o CSMA/CD sumiu nas redes modernas?</h5>
+                <p>Em conexões <strong>Full-Duplex</strong> com switch e cabos de par trançado/fibra, existem vias físicas separadas para envio (Tx) e recebimento (Rx). Como o meio não é compartilhado, <strong>colisões físicas são impossíveis</strong>, tornando o CSMA/CD desnecessário e desativado.</p>
+              </div>
+
+              <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Métodos de Comutação no Switch (Switching Modes):</h4>
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <h4>📦 Store-and-Forward</h4>
+                  <p>Recebe o quadro inteiro no buffer, verifica a integridade checando o código <strong>FCS/CRC</strong>. Se corrompido, descarta. Oferece máxima segurança contra erros, mas com maior latência.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>⚡ Cut-Through</h4>
+                  <p>Lê apenas os primeiros 6 bytes (Endereço MAC de destino) e já inicia o encaminhamento antes do restante do quadro chegar. <strong>Latência ultrabaixa</strong>, porém propaga quadros corrompidos e runts.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>🛡️ Fragment-Free</h4>
+                  <p>Compromisso intermediário: lê os primeiros <strong>64 bytes</strong> (tamanho mínimo de um quadro Ethernet legal). Filtra colisões e fragmentos anômalos (runts) antes de reenviar, com latência menor que Store-and-Forward.</p>
+                </div>
+                <div class="concept-card">
+                  <h4>🛑 Controle de Fluxo (IEEE 802.3x)</h4>
+                  <p>Em Full-Duplex, se o buffer de recepção estiver quase cheio, o switch envia um <strong>Pause Frame</strong> (EtherType 0x8808) ao emissor requisitando interrupção temporária por um tempo determinado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tópico 6: Cálculo de IP (IPv4) -->
+        <article class="accordion-item" id="acc-calculo-ip">
+          <div class="accordion-header" onclick="toggleAccordion('acc-calculo-ip')">
+            <div class="acc-title-group">
+              <div class="acc-icon">🧮</div>
+              <div class="acc-title-text">
+                <h3>6. Cálculo de IP (IPv4) & Sub-redes</h3>
+                <p>Conversão binária, Classes, CIDR, Endereço de Rede, Broadcast e Hosts Válidos</p>
+              </div>
+            </div>
+            <div class="acc-chevron">▼</div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <h4>1. Conversão Decimal ⇄ Binário (Tabela dos Pesos de 1 Octeto):</h4>
+              <p>Cada octeto do IPv4 possui 8 bits com pesos definidos pelas potências de 2:</p>
+              
+              <div class="table-responsive">
+                <table class="table-custom" style="text-align: center;">
+                  <thead>
+                    <tr>
+                      <th>Bit (Posição)</th>
+                      <th>2⁷</th>
+                      <th>2⁶</th>
+                      <th>2⁵</th>
+                      <th>2⁴</th>
+                      <th>2³</th>
+                      <th>2²</th>
+                      <th>2¹</th>
+                      <th>2⁰</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Peso Decimal</strong></td>
+                      <td><strong>128</strong></td>
+                      <td><strong>64</strong></td>
+                      <td><strong>32</strong></td>
+                      <td><strong>16</strong></td>
+                      <td><strong>8</strong></td>
+                      <td><strong>4</strong></td>
+                      <td><strong>2</strong></td>
+                      <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Exemplo Binário</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+                No exemplo acima: 128 + 64 + 16 = <strong>208</strong> em decimal!
+              </p>
+
+              <h4>2. Classes Tradicionais e Faixas Privadas (RFC 1918):</h4>
+              <div class="table-responsive">
+                <table class="table-custom">
+                  <thead>
+                    <tr>
+                      <th>Classe</th>
+                      <th>1º Octeto</th>
+                      <th>Máscara Padrão</th>
+                      <th>Rede / Host</th>
+                      <th>Faixa Privada (RFC 1918 - Não roteável na Internet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Classe A</strong></td>
+                      <td>1 a 126</td>
+                      <td>255.0.0.0 (/8)</td>
+                      <td>8 bits Rede / 24 bits Host</td>
+                      <td><code>10.0.0.0/8</code> (10.0.0.0 a 10.255.255.255)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Classe B</strong></td>
+                      <td>128 a 191</td>
+                      <td>255.255.0.0 (/16)</td>
+                      <td>16 bits Rede / 16 bits Host</td>
+                      <td><code>172.16.0.0/12</code> (172.16.0.0 a 172.31.255.255)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Classe C</strong></td>
+                      <td>192 a 223</td>
+                      <td>255.255.255.0 (/24)</td>
+                      <td>24 bits Rede / 8 bits Host</td>
+                      <td><code>192.168.0.0/16</code> (192.168.0.0 a 192.168.255.255)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Classe D</strong></td>
+                      <td>224 a 239</td>
+                      <td>Multicast (Sem máscara padrão)</td>
+                      <td>Reservado para grupos Multicast</td>
+                      <td>Ex: 224.0.0.1 (todos os nós da sub-rede)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Classe E</strong></td>
+                      <td>240 a 255</td>
+                      <td>Experimental</td>
+                      <td>Pesquisas futuras</td>
+                      <td>Não utilizável</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 0.825rem; color: var(--text-muted);">
+                *Nota: <code>127.0.0.0/8</code> é reservado para Loopback (teste local da pilha TCP/IP, ex: 127.0.0.1) e <code>169.254.0.0/16</code> para APIPA (quando o DHCP falha).
+              </p>
+
+              <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Fórmulas de Sub-rede e Método do Salto (Block Size):</h4>
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <h4>🔢 Quantidade de Hosts Válidos</h4>
+                  <p style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-cyan);">H = 2<sup>h</sup> - 2</p>
+                  <p>Onde <strong>h</strong> é o número de bits 0 (bits de host). Descontam-se 2 endereços: o <strong>Endereço de Rede</strong> (todos os bits de host = 0) e o <strong>Broadcast</strong> (todos os bits de host = 1).</p>
+                </div>
+                <div class="concept-card">
+                  <h4>📏 Salto / Tamanho do Bloco</h4>
+                  <p style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-cyan);">Salto = 256 - Máscara</p>
+                  <p>Exemplo com máscara 255.255.255.<strong>224</strong> (/27):<br>
+                  Salto = 256 - 224 = <strong>32</strong>.<br>
+                  Redes avançam de 32 em 32: .0, .32, .64, .96, .128...</p>
+                </div>
+              </div>
+
+              <!-- Interactive IPv4 Subnet Calculator -->
+              <div class="calc-container">
+                <h4>🧮 Calculadora Rápida de Sub-rede IPv4</h4>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Digite um endereço IPv4 e selecione a máscara CIDR para decompor a sub-rede instantaneamente:</p>
+                
+                <div class="calc-row">
+                  <div class="calc-group">
+                    <label for="calc-ip">Endereço IP</label>
+                    <input type="text" id="calc-ip" value="192.168.10.75" placeholder="ex: 192.168.1.1">
+                  </div>
+                  <div class="calc-group">
+                    <label for="calc-cidr">Prefixo CIDR</label>
+                    <select id="calc-cidr">
+                      <option value="24">/24 (255.255.255.0)</option>
+                      <option value="25">/25 (255.255.255.128)</option>
+                      <option value="26">/26 (255.255.255.192)</option>
+                      <option value="27" selected>/27 (255.255.255.224)</option>
+                      <option value="28">/28 (255.255.255.240)</option>
+                      <option value="29">/29 (255.255.255.248)</option>
+                      <option value="30">/30 (255.255.255.252)</option>
+                      <option value="22">/22 (255.255.252.0)</option>
+                      <option value="16">/16 (255.255.0.0)</option>
+                    </select>
+                  </div>
+                  <button class="btn-calc" onclick="runCalculator()">Calcular Sub-rede</button>
+                </div>
+
+                <div class="calc-results-grid" id="calc-results-area">
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Endereço de Rede</div>
+                    <div class="calc-res-val" id="res-rede">192.168.10.64</div>
+                  </div>
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Endereço de Broadcast</div>
+                    <div class="calc-res-val" id="res-broadcast">192.168.10.95</div>
+                  </div>
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Primeiro Host Válido</div>
+                    <div class="calc-res-val" id="res-primeiro">192.168.10.65</div>
+                  </div>
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Último Host Válido</div>
+                    <div class="calc-res-val" id="res-ultimo">192.168.10.94</div>
+                  </div>
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Hosts Utilizáveis</div>
+                    <div class="calc-res-val" id="res-hosts">30 hosts</div>
+                  </div>
+                  <div class="calc-res-item">
+                    <div class="calc-res-label">Máscara Decimal</div>
+                    <div class="calc-res-val" id="res-mascara">255.255.255.224</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SEÇÃO 2: QUIZ DE CONHECIMENTO (30 QUESTÕES RIGOROSAS)
+         ==================================================================== -->
+    <section id="section-quiz" class="section-quiz">
+      <div class="quiz-layout">
+        
+        <!-- Main Quiz Card -->
+        <div class="quiz-card">
+          <div class="quiz-header-meta">
+            <div class="question-count">
+              Questão <strong id="q-current-num">1</strong> de <strong>30</strong>
+            </div>
+            <div id="q-diff-badge" class="diff-badge facil">
+              🟢 Nível Fácil
+            </div>
+          </div>
+
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="quiz-progress-bar"></div>
+          </div>
+
+          <div class="question-topic-tag" id="q-topic-tag">
+            Comunicação de Dados
+          </div>
+
+          <h3 class="question-text" id="q-text-content">
+            Enunciado da pergunta carregando...
+          </h3>
+
+          <!-- Alternatives (A, B, C, D) -->
+          <div class="options-list" id="q-options-container">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- Bottom Nav Controls -->
+          <div class="quiz-nav-bar">
+            <button class="btn-quiz-nav" id="btn-prev-q" onclick="prevQuestion()" disabled>
+              ◀ Anterior
+            </button>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn-quiz-nav btn-quiz-primary" id="btn-next-q" onclick="nextQuestion()">
+                Próxima ▶
+              </button>
+              <button class="btn-quiz-nav btn-quiz-finish" id="btn-finish-q" onclick="promptFinishQuiz()" style="display:none;">
+                Finalizar e Ver Gabarito 🏁
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Sidebar (Question Map & Progress Tracker) -->
+        <aside class="quiz-sidebar">
+          <div class="sidebar-title">
+            <span>Mapa de Questões</span>
+            <span style="font-size: 0.8rem; font-weight: 500; color: var(--accent-cyan);" id="sidebar-answered-count">0/30</span>
+          </div>
+
+          <div class="sidebar-stats">
+            <span>Respondidas: <strong id="stat-answered" style="color:var(--text-primary)">0</strong></span>
+            <span>Restantes: <strong id="stat-pending" style="color:var(--text-muted)">30</strong></span>
+          </div>
+
+          <div class="question-grid" id="question-nav-grid">
+            <!-- 30 question dots generated by JS -->
+          </div>
+
+          <div class="q-legend">
+            <div class="q-legend-item">
+              <span class="legend-box" style="background:var(--accent-indigo)"></span>
+              <span>Respondida</span>
+            </div>
+            <div class="q-legend-item">
+              <span class="legend-box" style="background:var(--bg-surface); border: 1px solid var(--accent-cyan);"></span>
+              <span>Questão Atual</span>
+            </div>
+            <div class="q-legend-item">
+              <span class="legend-box" style="background:var(--bg-surface); border: 1px solid var(--border-subtle);"></span>
+              <span>Pendente</span>
+            </div>
+          </div>
+
+          <button class="btn-secondary" style="width: 100%; margin-top: 1.25rem; justify-content: center; font-size: 0.825rem;" onclick="promptFinishQuiz()">
+            Concluir Simulado Agora
+          </button>
+        </aside>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SEÇÃO 3: RESULTADOS E FEEDBACK DETALHADO
+         ==================================================================== -->
+    <section id="section-resultado" class="section-resultado">
+      
+      <!-- Top Scoreboard -->
+      <div class="results-hero">
+        <div class="score-circle-wrap">
+          <svg class="score-circle-svg" viewBox="0 0 140 140">
+            <circle class="score-circle-bg" cx="70" cy="70" r="60"></circle>
+            <circle class="score-circle-bar" id="score-bar" cx="70" cy="70" r="60"></circle>
+          </svg>
+          <div class="score-number" id="final-percentage">0%</div>
+        </div>
+
+        <h2 id="final-verdict-title">Desempenho no Simulado</h2>
+        <p id="final-verdict-desc">Confira sua pontuação detalhada e revise todas as questões com as justificativas teóricas completas abaixo.</p>
+
+        <div class="metrics-summary-grid">
+          <div class="metric-box">
+            <div class="metric-label">Pontuação Total</div>
+            <div class="metric-val neutral" id="metric-score-text">0 / 30</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Total de Acertos</div>
+            <div class="metric-val correct" id="metric-correct-count">0</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Total de Erros</div>
+            <div class="metric-val wrong" id="metric-wrong-count">0</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Fáceis | Médias | Difíceis</div>
+            <div class="metric-val" style="font-size: 1.25rem; color: var(--text-primary);" id="metric-diff-breakdown">
+              0/10 | 0/10 | 0/10
+            </div>
+          </div>
+        </div>
+
+        <div class="results-actions-top">
+          <button class="btn-quiz-nav btn-quiz-primary" onclick="restartQuiz()">
+            🔄 Refazer Quiz
+          </button>
+          <button class="btn-secondary" onclick="switchSection('teoria')">
+            📖 Revisar Resumo Teórico
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Bar for Feedback -->
+      <div class="feedback-filter-bar">
+        <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">
+          Gabarito Comentado (30 Questões):
+        </div>
+        
+        <div class="filter-tabs">
+          <button class="filter-btn active" onclick="filterFeedback('todos', this)">Todas (30)</button>
+          <button class="filter-btn" onclick="filterFeedback('erros', this)">Apenas Erros ❌</button>
+          <button class="filter-btn" onclick="filterFeedback('acertos', this)">Apenas Acertos ✅</button>
+          <button class="filter-btn" onclick="filterFeedback('facil', this)">Fáceis (1-10)</button>
+          <button class="filter-btn" onclick="filterFeedback('medio', this)">Médias (11-20)</button>
+          <button class="filter-btn" onclick="filterFeedback('dificil', this)">Difíceis (21-30)</button>
+        </div>
+      </div>
+
+      <!-- Feedback Cards List -->
+      <div class="feedback-cards-list" id="feedback-items-container">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>RedeMaster</strong> — Portal Educacional Interativo para Provas de Redes de Computadores.</p>
+      <p style="margin-top: 0.35rem; color: var(--text-muted);">
+        Desenvolvido com HTML, CSS e JavaScript puros estruturados em pastas externas.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       JAVASCRIPT: DADOS DO QUIZ & LÓGICA DA APLICAÇÃO
+       ====================================================================== -->
+    <script src="js/app.js" defer></script>
+</body>
+</html>
