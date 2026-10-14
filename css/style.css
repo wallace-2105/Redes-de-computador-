@@ -178,12 +178,14 @@
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, #f8fafc 40%, var(--accent-cyan));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     [data-theme="light"] .logo-text h1 {
       background: linear-gradient(135deg, #0f172a 40%, var(--accent-blue));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -294,6 +296,7 @@
     .hero-title .highlight {
       background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
