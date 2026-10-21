@@ -313,6 +313,7 @@ Como o projeto utiliza tecnologias nativas do navegador, não é necessária a i
 Este projeto é disponibilizado publicamente para auxiliar graduandos e professores nos tópicos fundamentais de infraestrutura e redes de computadores. Sugestões de novas questões, correções conceituais ou melhorias de interface são bem-vindas via *Issues* ou *Pull Requests*!
 
 ---
+ajustes futuros 
 
 <div align="center">
 
