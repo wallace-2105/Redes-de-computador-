@@ -321,5 +321,5 @@ Desenvolvido por **[Wallace Coimbra](https://github.com/wallace-2105)**
 *Dedicado a todos os estudantes de Redes e Computação!*
 
 **[🌐 Acessar o Portal Online](https://wallace-2105.github.io/Redes-de-computador-/)**
-
+mais conteudo em breve...
 </div>
